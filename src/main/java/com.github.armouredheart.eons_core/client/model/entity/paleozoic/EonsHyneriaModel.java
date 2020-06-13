@@ -200,5 +200,41 @@ public class EonsHyneriaModel<T extends EonsHyneriaEntity> extends EonsEntityMod
         GlStateManager.translatef(-this.body.rotationPointX * f5, -this.body.rotationPointY * f5, -this.body.rotationPointZ * f5);
         this.body.render(f5);
         GlStateManager.popMatrix();
+
+@Override
+	    public void render(T entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	        super.render(entity, f, f1, f2, f3, f4, f5);
+	        this.body.render(f5);
+	    }
+        protected void animationSwim(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) 
+        {this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
+         this.tail1.rotateAngleY = MathHelper.cos(f * 0.6662F) * f1;
+          this.tail2.rotateAngleY = MathHelper.cos(f * 0.3331F) * f1;
+          this.shape67.rotateAngleY = MathHelper.cos(f * 0.6662F) * f1;
+        }
+         }
+        protected void animationAttack(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) 
+        {this.head.rotateAngleY = f3 / (180F / (float) Math.PI); 
+         this.tail1.rotateAngleY = MathHelper.cos(f * 0.6662F) * f1;
+          this.tail2.rotateAngleY = MathHelper.cos(f * 0.3331F) * f1;
+          this.shape67.rotateAngleY = MathHelper.cos(f * 0.6662F) * f1;
+         this.jaw.rotateAngleX = MathHelper.cos(f * 0.6662F) * f1;
+        }
+    
+    @Override 
+protected void animationWalk(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+    this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
+    this.Larm.rotateAngleX = MathHelper.cos(f * 0.6662F) * f1;
+    this.Rarm.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
+    this.Lleg_1.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
+    this.Lleg.rotateAngleX = MathHelper.cos (f * 1.0F) * -1.0F * f1;
+    this.Larm.rotateAngleX = MathHelper.cos(f * -67.5F);
+    this.Rarm.rotateAngleX = MathHelper.cos(f * 67.5F);
+    this.Lleg_1.rotateAngleX = MathHelper.cos(f * 67.5F);
+    this.Lleg.rotateAngleX = MathHelper.cos (f * -67.5F);
+
+}
+
+
     }
 }
