@@ -101,5 +101,17 @@ public class EonsBelantseaModel<T extends EonsBelantseaEntity> extends EonsEntit
         GlStateManager.translatef(-this.body.rotationPointX * f5, -this.body.rotationPointY * f5, -this.body.rotationPointZ * f5);
         this.body.render(f5);
         GlStateManager.popMatrix();
+        
+         @Override
+    public void render(T entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        this.body.render(f5);
+    }
+        @Override 
+        protected void animationSwim(Entity entity, float f, float f1, float f2, float f3, float f4, float f5))
+        { this.tail1.rotateAngleY = MathHelper.cos(f * 0.6662F) * f1; };
+         @Override 
+        protected void animationAttack(Entity entity, float f, float f1, float f2, float f3, float f4, float f5))
+        { this.shape4.rotateAngleX = MathHelper.cos(f * 0.3331F) * f1; };
     }
 }
