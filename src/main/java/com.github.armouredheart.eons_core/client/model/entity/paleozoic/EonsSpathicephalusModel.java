@@ -105,5 +105,53 @@ public class EonsSpathicephalusModel<T extends EonsSpathicephalusEntity> extends
         GlStateManager.translatef(-this.shape1.rotationPointX * f5, -this.shape1.rotationPointY * f5, -this.shape1.rotationPointZ * f5);
         this.shape1.render(f5);
         GlStateManager.popMatrix();
+       
     }
+    @Override
+	    public void render(T entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	        super.render(entity, f, f1, f2, f3, f4, f5);
+	        this.body.render(f5);
+            
+             @Override
+            protected void animationWalk(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) 
+            { 
+            this.Larm.rotateAngleX = MathHelper.cos(f * 0.6662F) * f1;
+		    this.Lleg.rotateAngleX = MathHelper.cos (f * 1.0F) * -1.0F * f1;
+		    this.Lleg_1.rotateAngleX = MathHelper.cos(f * 1.0F) * 1.0F * f1;
+		    this.Larm_1.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * f1;
+		    this.neck.rotateAngleY = f3 / (180F / (float) Math.PI);
+		    this.neck.rotateAngleX = f4 / (180F / (float) Math.PI);
+            this.tale.rotateAngleX = MathHelper.cos (f * 0.50F) * -0.50F * f1;
+		    this.tale_2.rotateAngleX = MathHelper.cos(f * 0.50F) * 0.50F * f1;
+            }
+              @Override
+            protected void animationSwim(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) 
+            { 
+         
+		    this.neck.rotateAngleY = f3 / (180F / (float) Math.PI);
+		    this.neck.rotateAngleX = f4 / (180F / (float) Math.PI);
+            this.tale.rotateAngleX = MathHelper.cos (f * 1.0F) * -1.00F * f1;
+		    this.tale_1.rotateAngleX = MathHelper.cos(f * 1.00F) * 1.00F * f1;
+            this.tale_2.rotateAngleX = MathHelper.cos(f * 0.50F) * 0.50F * f1;
+            }
+              @Override
+            protected void animationAttack(Entity entity, float f, float f1, float f2, float f3, float f4, float f5))
+            { this.neck.rotateAngleY = f3 / (180F / (float) Math.PI);
+		    this.neck.rotateAngleX = f4 / (180F / (float) Math.PI); 
+            this.shape3.rotateAngleX = MathHelper.cos (f * 1.0F) * -1.00F * f1;
+		    this.jaw.rotateAngleX = MathHelper.cos(f * 1.00F) * 1.00F * f1;
+            }
+                 @Override
+            protected void animationThreat(Entity entity, float f, float f1, float f2, float f3, float f4, float f5))
+            { this.neck.rotateAngleY = f3 / (180F / (float) Math.PI);
+		    this.neck.rotateAngleX = f4 / (180F / (float) Math.PI);
+           this.shape3.rotateAngleX = MathHelper.cos (f * 1.0F);
+		    this.jaw.rotateAngleX = MathHelper.cos(f * 1.00F);
+            }
+            @Override
+            protected void animationEat(Entity entity, float f, float f1, float f2, float f3, float f4, float f5))
+            {this.jaw.rotateAngleX = MathHelper.cos(f * 1.00F) * 1.00F * f1;
+            }
+	    }
+
 }
