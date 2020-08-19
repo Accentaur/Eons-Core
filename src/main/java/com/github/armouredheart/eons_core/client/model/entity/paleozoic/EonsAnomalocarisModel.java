@@ -26,6 +26,7 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
  */
 @OnlyIn(Dist.CLIENT)
 public class EonsAnomalocarisModel<T extends EonsAnomalocarisEntity> extends EntityModel<T> implements IEonsAnimationModel<T> {
+  public float[] modelScale = new float[] { 0.5F, 0.5F, 0.5F };
     public ModelRenderer body;
     public ModelRenderer neck;
     public ModelRenderer body2;
